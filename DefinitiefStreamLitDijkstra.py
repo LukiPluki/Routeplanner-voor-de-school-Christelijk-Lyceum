@@ -248,15 +248,22 @@ start_vertex = st.selectbox("Select starting point:", g.vertex_data)
 end_vertex = st.selectbox("Select end point:", g.vertex_data)
 
 # foto laten zien
-BASE_DIR = os.path.dirname(__file__)
+BASE_DIR = os.path.dirname(__file__)  # path to your script
 
-plattegrond = Image.open(
-    os.path.join(BASE_DIR, "BeganeGrondChristelijkLyceumGoed.png")
-)
+# Paths to images
+plattegrond_path = os.path.join(BASE_DIR, "BeganeGrondChristelijkLyceumGoed.png")
+endpoint_path = os.path.join(BASE_DIR, "endpoint.png")
 
-endpoint_img = Image.open(
-    os.path.join(BASE_DIR, "endpoint.png")
-)
+# Check if files exist
+if not os.path.isfile(plattegrond_path):
+    st.error(f"Plattegrond image not found: {plattegrond_path}")
+else:
+    img = Image.open(plattegrond_path)
+
+if not os.path.isfile(endpoint_path):
+    st.error(f"Endpoint image not found: {endpoint_path}")
+else:
+    endpoint_img = Image.open(endpoint_path)
 
 
 if st.button("Find Shortest Path"):
@@ -303,6 +310,7 @@ st.image(img, width=1000, caption="Kortste route")
 # st.image(img2, width=20)
 
 # Python
+
 
 
 

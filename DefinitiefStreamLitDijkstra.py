@@ -254,6 +254,17 @@ BASE_DIR = os.path.dirname(__file__)  # path to your script
 plattegrond_path = os.path.join(BASE_DIR, "BeganeGrondChristelijkLyceumGoed.png")
 endpoint_path = os.path.join(BASE_DIR, "endpoint.png")
 
+# Check if files exist
+if not os.path.isfile(plattegrond_path):
+    st.error(f"Plattegrond image not found: {plattegrond_path}")
+else:
+    img = Image.open(plattegrond_path)
+
+if not os.path.isfile(endpoint_path):
+    st.error(f"Endpoint image not found: {endpoint_path}")
+else:
+    endpoint_img = Image.open(endpoint_path)
+
 if st.button("Find Shortest Path"):
     start_time = time.time()
     distances, previous = g.dijkstra(start_vertex)
@@ -298,6 +309,7 @@ st.image(img, width=1000, caption="Kortste route")
 # st.image(img2, width=20)
 
 # Python
+
 
 
 

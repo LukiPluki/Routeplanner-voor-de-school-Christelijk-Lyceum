@@ -251,7 +251,7 @@ end_vertex = st.selectbox("Select end point:", g.vertex_data)
 BASE_DIR = os.path.dirname(__file__)
 
 plattegrond = Image.open(
-    os.path.join(BASE_DIR, "BeganeGrondChristelijkLyceumGoed.png.png")
+    os.path.join(BASE_DIR, "BeganeGrondChristelijkLyceumGoed.png")
 )
 
 endpoint_img = Image.open(
@@ -303,5 +303,6 @@ st.image(img, width=1000, caption="Kortste route")
 # st.image(img2, width=20)
 
 # Python
+
 
 

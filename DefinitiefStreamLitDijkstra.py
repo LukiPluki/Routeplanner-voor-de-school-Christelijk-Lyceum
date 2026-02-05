@@ -2,7 +2,7 @@ from PIL import ImageDraw
 import time
 import streamlit as st
 from PIL import Image
-
+import os
 
 class Graph:
     def __init__(self, size):
@@ -248,10 +248,16 @@ start_vertex = st.selectbox("Select starting point:", g.vertex_data)
 end_vertex = st.selectbox("Select end point:", g.vertex_data)
 
 # foto laten zien
-img = Image.open(
-    "D:\RoutePlanner dingen\Plattegronden\BeganeGrondChristelijkLyceumGoed.png")
-endpoint_img = Image.open("D:\Coding\PWS\endpoint.png")
-# st.image(img, width=1000, caption="Plattegrond begane grond")
+BASE_DIR = os.path.dirname(__file__)
+
+plattegrond = Image.open(
+    os.path.join(BASE_DIR, "plattegrond.png")
+)
+
+endpoint_img = Image.open(
+    os.path.join(BASE_DIR, "endpoint.png")
+)
+
 
 if st.button("Find Shortest Path"):
     start_time = time.time()
@@ -297,3 +303,4 @@ st.image(img, width=1000, caption="Kortste route")
 # st.image(img2, width=20)
 
 # Python
+

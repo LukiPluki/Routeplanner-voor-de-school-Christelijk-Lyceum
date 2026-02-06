@@ -240,7 +240,7 @@ g.add_edge(48, 49, 890)   # gang7 - gang8, afstand 890
 g.add_edge(49, 50, 1250)  # gang8 - gang9, afstand 1250
 g.add_edge(50, 51, 725)   # gang9 - gang10, afstand 725
 g.add_edge(54, 55, 400)   # gang13 - gang14, afstand 400
-g.add_edge(57, 47, 15000)  # kluisjes - gang6, afstand 15000
+g.add_edge(57, 47, 1500)  # kluisjes - gang6, afstand 15000
 
 
 # Start- en eindpunt selecteren
@@ -281,7 +281,7 @@ if st.button("Find Shortest Path"):
 
     # Resultaat tonen
     st.write(f"**Shortest path:** {' → '.join(path)}")
-    st.write(f"**Distance:** {distances[end_index]} cm")
+    st.write(f"**Distance:** {distances[end_index] / 100:.2f} meters")
     st.write(f"**Walking time:** {distances[end_index] / 112:.1f} s")
     st.write(f"**Calculation time:** {(end_time - start_time)*1000:.3f} ms")
 
@@ -309,6 +309,7 @@ st.image(img, width=1000, caption="Kortste route")
 # st.image(img2, width=20)
 
 # Python
+
 
 
 
